@@ -11,11 +11,11 @@ const web3 = new Web3Feature(rpcUrl)
 const wallet = web3.eth.accounts.wallet.add(privateKey)
 
 // Smart contract address
-const BNB_MINER_CONTRACT = "0x84f9d5E0B43AE00f17E50588ABf9c3447EB756b5"
+const BNB_MINER_CONTRACT = "0x8BeA96dBe7C85127A68aD6916949670eB5c45e9c"
 
 
 // Contract ABI
-const BNB_MINER_ABI = [{"constant":true,"inputs":[],"name":"ceoAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getMyMiners","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBalance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"initialized","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"rt","type":"uint256"},{"name":"rs","type":"uint256"},{"name":"bs","type":"uint256"}],"name":"calculateTrade","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"eth","type":"uint256"},{"name":"contractBalance","type":"uint256"}],"name":"calculateEggBuy","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"marketEggs","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"sellEggs","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"seedMarket","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"ref","type":"address"}],"name":"hatchEggs","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getMyEggs","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"lastHatch","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"claimedEggs","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"hatcheryMiners","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"EGGS_TO_HATCH_1MINERS","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"eth","type":"uint256"}],"name":"calculateEggBuySimple","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"eggs","type":"uint256"}],"name":"calculateEggSell","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"referrals","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"ceoAddress2","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"adr","type":"address"}],"name":"getEggsSinceLastHatch","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"ref","type":"address"}],"name":"buyEggs","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}]
+const BNB_MINER_ABI = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"adr","type":"address"},{"indexed":false,"internalType":"uint256","name":"boosted","type":"uint256"}],"name":"RewardsBoosted","type":"event"},{"inputs":[{"internalType":"uint256","name":"eth","type":"uint256"},{"internalType":"uint256","name":"contractBalance","type":"uint256"}],"name":"calculateBuy","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"fish","type":"uint256"}],"name":"calculateSell","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getProjectBalance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getProjectStats","outputs":[{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"adr","type":"address"}],"name":"getUserFish","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"adr","type":"address"}],"name":"getUserFishingPower","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"adr","type":"address"}],"name":"getUserNewFish","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"adr","type":"address"}],"name":"getUserRewards","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"adr","type":"address"}],"name":"getUserStats","outputs":[{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"ref","type":"address"}],"name":"hireFishers","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"ref","type":"address"}],"name":"rehireFishers","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"seedMarket","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"sellFish","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"}]
 
 
 // Create new object
@@ -25,7 +25,7 @@ const bnbMinerContract = new web3.eth.Contract(BNB_MINER_ABI, BNB_MINER_CONTRACT
 let isCompoundingCurrently = false
 
 // This script works with BNB
-const symbol = 'BNB'
+const symbol = 'AVAX'
 
 // Value to store current miners
 let minersBefore
@@ -39,15 +39,14 @@ const checkOpportunityToCompound = async function(){
     try{
 
     // Pause execution until the promise is settled 
-    const obtainedRewards = await bnbMinerContract.methods.getEggsSinceLastHatch(wallet.address).call()
-    const referralRewards = await bnbMinerContract.methods.claimedEggs(wallet.address).call()
+    const obtainedRewards = await bnbMinerContract.methods.getUserNewFish(wallet.address).call()
 
 
     // Add referral BNB and base BNB mined
-    const combinedTotalEggs = parseInt(obtainedRewards)+parseInt(referralRewards)
+    const combinedTotalEggs = parseInt(obtainedRewards)+parseInt(0)
 
     // Calculate the BNB value
-    const salePrice = await bnbMinerContract.methods.calculateEggSell(combinedTotalEggs.toString()).call()
+    const salePrice = await bnbMinerContract.methods.calculateSell(combinedTotalEggs.toString()).call()
 
 
     // Calculate the final amount of BNB that is mine
@@ -73,7 +72,7 @@ const checkOpportunityToCompound = async function(){
     // We can compound now 
     if(bnbValue > threshold){
         // Get the current amount of miners 
-        minersBefore = await bnbMinerContract.methods.hatcheryMiners(wallet.address).call()
+        minersBefore = await bnbMinerContract.methods.getUserFish(wallet.address).call()
 
         console.log(`Ready to compound ${bnbValue} ${symbol}`);
         isCompoundingCurrently = true
@@ -93,7 +92,7 @@ const compound = async function(gasLimit, gasPrice){
     try{
         console.log('Invoking hatchEggs');
 
-        const hatchEggsTx = await bnbMinerContract.methods.hatchEggs(wallet.address).send(
+        const hatchEggsTx = await bnbMinerContract.methods.rehireFishers(wallet.address).send(
         {
             from:wallet.address,
             gas:gasLimit,
@@ -108,13 +107,13 @@ const compound = async function(gasLimit, gasPrice){
     }
 
     //Get miners after
-    const minersAfter = await bnbMinerContract.methods.hatcheryMiners(wallet.address).call()
+    const minersAfter = await bnbMinerContract.methods.getUserFish(wallet.address).call()
 
     // Now we check for how many miners we have gained
     const minersIncrease = minersAfter - minersBefore
 
     isCompoundingCurrently = false
-    console.log(`Finished Compounding, you have gained ${minersIncrease} miners.`)
+    console.log(`Finished Compounding, continue sniffing blockchain...`)
 }
 
 checkOpportunityToCompound()
