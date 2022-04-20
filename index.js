@@ -65,7 +65,7 @@ const checkOpportunityToCompound = async function(){
     const txCost = web3.utils.fromWei(gasPrice.toString()) * gasLimit
     
     // We use this to determine what multiple of the tx cost we wanna compound at 
-    const multiplierTxCost = 3
+    const multiplierTxCost = 5
 
     // Since the GAS Limit is higher we don't have to have a multiple of the TXCOST
     const threshold = txCost * multiplierTxCost
